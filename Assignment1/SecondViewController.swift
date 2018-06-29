@@ -19,6 +19,17 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override var traitCollection: UITraitCollection{
+        
+        if UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isPortrait{
+            let traitCollections = [UITraitCollection(horizontalSizeClass: .compact), UITraitCollection(verticalSizeClass: .regular)]
+            return UITraitCollection(traitsFrom: traitCollections)
+        }
+        
+        return super.traitCollection
+    }
+    
 
 
 }
